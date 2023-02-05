@@ -88,6 +88,14 @@ strong{
    left: 94px;
 
 }
+.mysql-logo{
+   width: 190px;
+   position: absolute;
+   width: 190px;
+   left: 72px;
+   top: 22px;
+
+}
 .paragraph-links{
    color: black;
    font-family: 'Quicksand', sans-serif;
@@ -104,13 +112,22 @@ strong{
    border-radius: 10%;
    border-color: #C3ACD0;
 }
-.link-headings{
+.link-headings-firstpost{
    color: black;
     text-decoration: none;
     font-size: 31px;
     position: absolute;
     left: 317px;
     top: 18px;
+}
+.link-headings-secondpost{
+    margin-top: 18px;
+    color: black;
+    text-decoration: none;
+    font-size: 31px;
+    position: absolute;
+    left: 317px;
+
 }
 .first-div{
    background-color:#F7EFE5;
@@ -124,4 +141,16 @@ strong{
    font-family: 'Merriweather', serif;
    text-decoration: none;
 
+}
+.second-div{
+   background-color:#F7EFE5;height: 247px;
+   border-radius: 22%;
+   position: relative;
+   background-color: #FFFBF5;
+   margin-left: 70px;
+   margin-right: 70px;
+   margin-top: 15px;
+   border: solid #C3ACD0;
+   font-family: 'Merriweather', serif;
+   text-decoration: none;
 }
