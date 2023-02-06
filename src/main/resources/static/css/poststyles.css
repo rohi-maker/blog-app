@@ -1,0 +1,34 @@
+.post-layout{
+    margin-left: 10px;
+    background-color: #E9E8E8;
+    height: 209px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: solid 1px;
+    position: relative;
+}
+.post-layout:hover{
+    background-color:white;
+ }
+ .title-image-layout{
+    width: 171px;
+    position: absolute;
+    top: 15px;
+    left: 57px;
+ }
+
+ .post-title-layout{
+    font-family: 'Merriweather', serif;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 8px;
+    left: 349px;
+    font-size: 40px;
+ }
+ .post-view-layout{
+    font-size: 25px;
+    position: absolute;
+    top: 66px;
+    left: 349px;
+ }

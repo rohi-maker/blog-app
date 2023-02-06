@@ -14,4 +14,13 @@ public class ViewController {
     return "index";
   }
 
+  @RequestMapping("/contactus")
+  public String contactUs() {
+    return "contactus";
+  }
+
+  @RequestMapping("/posts")
+  public String posts() {
+    return "posts";
+  }
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +79,15 @@
         "
         </a>
   </div>
-
+  <div class="third-div">
+    <img src="/images/third-image.png" alt="third-image" class="third-image">
+    <a href="/blog" class="link-headings-thirdpost">Learning MongoDB Database</a>
+      <a href="/blog" class="paragraph-links">"A spring boot is a powerfull framework written in java.
+        If anyone having a knowledge of basic java then he/she can go for this framework. One of the
+        most popular use of this framework is building microservices.
+        "
+        </a>
+  </div>
 
   </div>
 </body>
