@@ -71,7 +71,7 @@
     </div>
 
     <div class="second-div">
-      <img src="/images/logo-mysql-mysql-logo-png-images-are-download-crazypng-21.png" class="mysql-logo" alt="Mysql-logo">
+      <img src="/images/logo-mysql-26353.png" class="mysql-logo" alt="Mysql-logo">
       <a href="/blog" class="link-headings-secondpost">Learning MySQL Database</a>
       <a href="/blog" class="paragraph-links">"A spring boot is a powerfull framework written in java.
         If anyone having a knowledge of basic java then he/she can go for this framework. One of the
