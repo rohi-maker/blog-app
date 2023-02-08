@@ -1,4 +1,5 @@
 <!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
+<%@ page import="java.util.List, com.blogApp.model.PostCategory, java.lang.Integer"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +53,9 @@
         </div>
     </div>
   </nav>
+
   <div class="show-pannel">
+
     <img src="/images/pexels-cottonbro-studio-4709289.jpg" class="front-image" alt="Front image">
     <h1 class="welcome-text">Welcome to</h1>
     <h1 class="website-name-text">CodeBlogs.com</h1>
@@ -60,35 +63,32 @@
       generally occured problems in <br>programming. <strong style="color: black;">First You learn then <br>you earn
       </strong>"</p>
   </div>
+
   <div class="topics">
+   <!-- Here the div bar of latest post overview starts-->
+      <%
+        List<PostCategory> postList=(List)request.getAttribute("postsFromDb");
+      %>
+     <%
+     if(postList!=null){
+     for(PostCategory category: postList){ %>
     <div class="first-div">
-        <img src="/images/spring.svg" class="spring-logo" alt="Spring-logo">
-        <a href="/blog" class="link-headings-firstpost">Learning Spring Boot</a>
-        <a href="/blog" class="paragraph-links">"A spring boot is a powerfull framework written in java.
-          If anyone having a knowledge of basic java then he/she can go for this framework. One of the
-          most popular use of this framework is building microservices.
-          "</a>
+    <!--"/images/spring.svg"-->
+        <img src="/images/<%=category.getImage_id()%>" class="logo-position" alt="Spring-logo">
+        <a href="/blog" class="link-headings-firstpost"><% out.print(category.getTitle()); %></a>
+        <a href="/blog" class="paragraph-links"><% out.print(category.getContent());%>
+          </a>
     </div>
-
-    <div class="second-div">
-      <img src="/images/logo-mysql-26353.png" class="mysql-logo" alt="Mysql-logo">
-      <a href="/blog" class="link-headings-secondpost">Learning MySQL Database</a>
-      <a href="/blog" class="paragraph-links">"A spring boot is a powerfull framework written in java.
-        If anyone having a knowledge of basic java then he/she can go for this framework. One of the
-        most popular use of this framework is building microservices.
-        "
-        </a>
-  </div>
-  <div class="third-div">
-    <img src="/images/third-image.png" alt="third-image" class="third-image">
-    <a href="/blog" class="link-headings-thirdpost">Learning MongoDB Database</a>
-      <a href="/blog" class="paragraph-links">"A spring boot is a powerfull framework written in java.
-        If anyone having a knowledge of basic java then he/she can go for this framework. One of the
-        most popular use of this framework is building microservices.
-        "
-        </a>
-  </div>
-
+   <% } }%>
+   <%
+      int nextPageNo=(Integer)request.getAttribute("nextPageNo");
+   %>
+  <a href="/codeblogs/<%=nextPageNo%>" style="text-decoration: none; color: white;"><button class="next-button" >Next Button</button></a>
+  <% if (request.getAttribute("prevPageNo")!=null){
+    int prevPageNo=(Integer)request.getAttribute("prevPageNo");
+  %>
+  <a href="/codeblogs/<%=prevPageNo%>" style="text-decoration: none; color: white;"><button class="previous-button" >Previous Page</button></a>
+  <% }%>
   </div>
 </body>
 
