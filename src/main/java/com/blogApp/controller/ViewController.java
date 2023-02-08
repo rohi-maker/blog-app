@@ -28,13 +28,21 @@ public class ViewController {
     List<PostCategory> latestPostCategories = blogAppService.getLatestPostCategory(pageNo);
     if (latestPostCategories != null && latestPostCategories.size() > 0) {
       model.addAttribute("postsFromDb", latestPostCategories);
-      model.addAttribute("nextPageNo", new Integer(pageNo+1));
-      model.addAttribute("prevPageNo", new Integer(pageNo-1));
-
+      if(latestPostCategories.get(latestPostCategories.size()-1).getId()==1) {
+        model.addAttribute("nextPageNo", null);
+      }
+      else{
+        model.addAttribute("nextPageNo", new Integer(pageNo + 1));
+      }
+      if (pageNo != 0) {
+        model.addAttribute("prevPageNo", new Integer(pageNo - 1));
+      } else {
+        model.addAttribute("prevPageNo", null);
+      }
     } else {
       model.addAttribute("postsFromDb", null);
-      model.addAttribute("nextPageNo",new Integer(null));
-      model.addAttribute("prevPageNo",pageNo-2);
+      model.addAttribute("nextPageNo", new Integer(null));
+      model.addAttribute("prevPageNo", pageNo - 2);
       firstPage(model);
     }
     return "index";
@@ -46,7 +54,7 @@ public class ViewController {
     List<PostCategory> latestPostCategories = blogAppService.getLatestPostCategory(0);
     if (latestPostCategories != null && latestPostCategories.size() > 0) {
       model.addAttribute("nextPageNo", new Integer(1));
-      model.addAttribute("prevPageNo",null);
+      model.addAttribute("prevPageNo", null);
       model.addAttribute("postsFromDb", latestPostCategories);
     } else {
       model.addAttribute("postsFromDb", null);
