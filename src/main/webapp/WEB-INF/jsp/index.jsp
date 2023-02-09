@@ -80,10 +80,12 @@
           </a>
     </div>
    <% } }%>
-   <%
-      int nextPageNo=(Integer)request.getAttribute("nextPageNo");
+
+   <% if(request.getAttribute("nextPageNo")!=null){
+   int nextPageNo=(Integer)request.getAttribute("nextPageNo");
    %>
   <a href="/codeblogs/<%=nextPageNo%>" style="text-decoration: none; color: white;"><button class="next-button" >Next Button</button></a>
+  <%} %>
   <% if (request.getAttribute("prevPageNo")!=null){
     int prevPageNo=(Integer)request.getAttribute("prevPageNo");
   %>
