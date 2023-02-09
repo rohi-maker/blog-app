@@ -1,7 +1,9 @@
 package com.blogApp.controller;
 
 import com.blogApp.model.PostCategory;
+import com.blogApp.model.UserSubscriptionRequest;
 import com.blogApp.repository.PostCategoryRepository;
+import com.blogApp.repository.UserSubscriptionRepository;
 import com.blogApp.service.BlogAppService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,17 +24,19 @@ public class ViewController {
   private BlogAppService blogAppService;
 
   @Autowired
-  private PostCategoryRepository repository;
+  private PostCategoryRepository postCategoryRepository;
+
+  @Autowired
+  private UserSubscriptionRepository userSubscriptionRepository;
 
   @RequestMapping("/codeblogs/{pageNo}")
   public String nextPages(@PathVariable("pageNo") int pageNo, Model model) {
     List<PostCategory> latestPostCategories = blogAppService.getLatestPostCategory(pageNo);
     if (latestPostCategories != null && latestPostCategories.size() > 0) {
       model.addAttribute("postsFromDb", latestPostCategories);
-      if(latestPostCategories.get(latestPostCategories.size()-1).getId()==1) {
+      if (latestPostCategories.get(latestPostCategories.size() - 1).getId() == 1) {
         model.addAttribute("nextPageNo", null);
-      }
-      else{
+      } else {
         model.addAttribute("nextPageNo", new Integer(pageNo + 1));
       }
       if (pageNo != 0) {
@@ -64,7 +69,8 @@ public class ViewController {
 
 
   @RequestMapping("/contactus")
-  public String contactUs() {
+  public String contactUs(Model model) {
+    model.addAttribute("user", new UserSubscriptionRequest());
     return "contactus";
   }
 
@@ -75,10 +81,17 @@ public class ViewController {
 
   @PostMapping("/insert")
   public ResponseEntity insertInDatabase(@RequestBody PostCategory postCategory) {
-    PostCategory category = repository.insert(postCategory);
+    PostCategory category = postCategoryRepository.insert(postCategory);
     if (category != null) {
       return ResponseEntity.ok(category);
     }
     return ResponseEntity.status(HttpStatus.NO_CONTENT.value()).body(null);
   }
+
+  @PostMapping("/register")
+  public String registerUser(@ModelAttribute("user") UserSubscriptionRequest userSubscriptionRequest) {
+    UserSubscriptionRequest userRequest = userSubscriptionRepository.insert(userSubscriptionRequest);
+    return "thanks";
+  }
+
 }

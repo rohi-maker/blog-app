@@ -20,7 +20,7 @@ strong{
     border-radius: 7%;
     position: absolute;
     top: 117px;
-    left: 685px;
+    left: 682px;
     width: 640px;
     height: 430px;
  }
@@ -84,35 +84,28 @@ strong{
     background-color: #F7EFE5 ;
     height: 930px;
  }
- .spring-logo{
-    width: 171px;
-    position: absolute;
-    top: 38px;
-    left: 94px;
-
- }
  .logo-position{
-     width: 171px;
-     height:165px;
-     position: absolute;
-     top: 38px;
-     left: 94px;
-     size: 300px;
-  }
- .mysql-logo{
+      width: 171px;
+      height:165px;
+      position: absolute;
+      top: 38px;
+      left: 94px;
+      size: 300px;
+   }
+ /* .mysql-logo{
     position: absolute;
-    width: 190px;
-    left: 72px;
-    top: 22px;
-
+    width: 171px;
+    left: 94px;
+    top: 38px;
+    size: 300px;
  }
  .third-image{
-     width: 190px;
+     width: 171px;
      position: absolute;
-     width: 190px;
-     left: 62px;
-     top: 93px;
- }
+     left: 94px;
+     top: 38px;
+     size: 300px;
+ } */
  .paragraph-links{
     color: black;
     font-family: 'Quicksand', sans-serif;
@@ -193,7 +186,7 @@ strong{
  }
  .contact-us-div{
      background-color: #F7EFE5;
-     height: 630px;
+     height: 758px;
      position: relative;
  }
  .contact-us-image{
@@ -211,7 +204,13 @@ strong{
     left: 364px;
     border-radius: 10%;
  }
+.thanks-div{
+   background-color: #F7EFE5;
+    height: 758px;
+    width: 1440px;
+    position: relative;
 
+}
 
 
 .button-27 {
@@ -259,7 +258,6 @@ strong{
   transform: translateY(0);
 }
 
-
 .next-button{
    appearance: none;
   background-color: #000000;
@@ -304,7 +302,15 @@ strong{
    transform: translateY(0);
  }
 
-
+ .front-font-styling{
+   left: 460px;
+   position: absolute;
+   font-family: 'Merriweather', serif;
+   top: 28px;
+   font-family: 'Itim', cursive;
+   font-size: 3.1rem;
+   font-weight: bold;
+ }
 
  .previous-button{
    appearance: none;
@@ -335,6 +341,12 @@ strong{
   position: absolute;
   top: 1428px;
   left: 290px;
+}
+.gif-styling{
+   border-radius: 6%;
+   position: absolute;
+    top: 107px;
+    left: 480px;
 }
 .previous-button:disabled {
    pointer-events: none;

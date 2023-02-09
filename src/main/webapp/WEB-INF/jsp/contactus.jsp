@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                  <a class="nav-link active" style="color: #FFFBF5;" aria-current="page" href="/">Home</a>
+                  <a class="nav-link active" style="color: #FFFBF5;" aria-current="page" href="/codeblogs">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" style="color: #FFFBF5;" href="/about">About</a>
@@ -60,44 +62,22 @@
             font-size: 3.1rem;
             ">Get in touch with us</h1>
             <div class="form-div">
-                <form action="/userinfo" method="post" id="contact-form">
-                    <h1 style="
-                        position: absolute;
-                        top: 67px;
-                        left: 72px;
-                        font-size: 31.6px;
-                        font-family: 'Itim', cursive;
-                    ">Email address: </h1>
-                    <input type="email" style="position: absolute;
-                    top: 72px;
-                    left: 330px;
-                    border: solid;
-                    border-radius: 18%;
-                    width: 310px;" placeholder="Email-ID" required="true">
-                    <h1 style="position: absolute;
-                    top: 144px;
-                    left: 72px;
-                    font-size: 31.6px;
-                    font-family: 'Itim', cursive;">Mobile :</h1>
-                    <input type="text" style="position: absolute;
-                    top: 150px;
-                    left: 330px;
-                    border: solid;
-                    border-radius: 18%;
-                    width: 310px;" placeholder="Mobile Number" required="true">
-                    <h1 style="position: absolute;
-                    top: 218px;
-                    left: 72px;
-                    font-size: 31.6px;
-                    font-family: 'Itim', cursive;">Address :</h1>
-                    <input type="text" style="position: absolute;
-                    top: 223px;
-                    left: 330px;
-                    border: solid;
-                    border-radius: 18%;
-                    width: 310px;" placeholder="Living Address" required="true">
-                    <button class="button-27" form="contact-form">SUBSCRIBE</button>
-                </form>
+
+            <!-- HERE THE FORM IMPLEMENTATION STARTS -->
+
+                <form:form action="/register" method="post" id="contact-form" modelAttribute="user">
+
+                <form:label path="email" style="position: absolute;top: 67px;left: 72px; font-size: 31.6px; font-family: 'Itim', cursive;">E-mail address:</form:label>
+                <form:input path="email" type="email" style="position: absolute; top: 72px; left: 330px; border: solid; border-radius: 18%; width: 310px;" placeholder="Email-ID" required="true"/>
+
+                <form:label path="mobile" style="position: absolute;top: 144px;left: 72px; font-size: 31.6px; font-family: 'Itim', cursive;">Mobile Number:</form:label>
+                <form:input path="mobile" type="text" style="position: absolute; top: 150px; left: 330px; border: solid; border-radius: 18%; width: 310px;" placeholder="Mobile Number" required="true"/>
+
+                <form:label path="address" style="position: absolute;top: 218px;left: 72px; font-size: 31.6px; font-family: 'Itim', cursive;">Address:</form:label>
+                <form:input path="address" type="text" style="position: absolute; top: 223px; left: 330px; border: solid; border-radius: 18%; width: 310px;" placeholder="Your Address" required="true"/>
+
+                <button class="button-27" form="contact-form">SUBSCRIBE</button>
+                </form:form>
             </div>
       </div>
 </body>
