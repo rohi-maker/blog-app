@@ -23,20 +23,19 @@ public class BlogAppService {
     @Autowired
     private PostArticlesRepository postArticlesRepository;
 
-    public List<PostCategory> getLatestPostCategory(int pageNo) {
+    public Page<PostCategory> getLatestPostCategory(int pageNo) {
         Page<PostCategory> allPostCategory = postCategoryRepository.findAll(PageRequest.of(pageNo, 3, Sort.by("createdDate").descending()));
-        List<PostCategory> categories = allPostCategory.get().collect(Collectors.toList());
-        if (categories != null && categories.size() > 0) {
-            return categories;
+        if (allPostCategory != null ) {
+            return allPostCategory;
         }
         return null;
     }
 
-    public List<PostArticle> getLatestPostArticles(int pageNo) {
+    public Page<PostArticle> getLatestPostArticles(int pageNo) {
         Page<PostArticle> allPostArticles = postArticlesRepository.findAll(PageRequest.of(pageNo, 5, Sort.by("createdDate").descending()));
-        List<PostArticle> postArticles=allPostArticles.get().collect(Collectors.toList());
-        if(postArticles!=null && postArticles.size()>0){
-            return postArticles;
+
+        if(allPostArticles!=null ){
+            return allPostArticles;
         }
         return null;
     }
@@ -50,9 +49,14 @@ public class BlogAppService {
         return null;
     }
 
-//    public static void main(String[] args) {
-//        String str="asdfda";
-//        str.substring(1);
-//    }
+    public Page<PostArticle> getPostArticlesAccordingToPostCategory(String category,int pageNo){
+        Page<PostArticle> allPostArticles = postArticlesRepository.findAll(category,PageRequest.of(pageNo, 5, Sort.by("createdDate").descending()));
+//        List<PostArticle> receivedPostArticles=allPostArticles.get().collect(Collectors.toList());
+        if(allPostArticles!=null){
+            return allPostArticles;
+        }
+        // here we need to handle the exceptional cases
+        return null;
+    }
 
 }

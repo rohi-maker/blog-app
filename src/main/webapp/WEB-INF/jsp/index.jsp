@@ -75,8 +75,8 @@
     <div class="first-div">
     <!--"/images/spring.svg"-->
         <img src="/images/<%=category.getImage_id()%>" class="logo-position" alt="Spring-logo">
-        <a href="/blog" class="link-headings-firstpost"><% out.print(category.getTitle()); %></a>
-        <a href="/blog" class="paragraph-links"><% out.print(category.getContent());%>
+        <a href="/relatedposts/<%=category.getTitle()%>" class="link-headings-firstpost"><% out.print(category.getTitle()); %></a>
+        <a href="/relatedposts/<%=category.getTitle()%>" class="paragraph-links"><% out.print(category.getContent());%>
           </a>
     </div>
    <% } }%>

@@ -64,7 +64,7 @@
             <h3 class="title-date"> Posted on : <% out.print(new SimpleDateFormat().format(article.getCreatedDate())); %></h3>
         </div>
        <div class="article-content">
-           <p class="paragraph-styling"><% out.print(article.getContent()); %></p>
+           <p class="paragraph-styling"><% out.print(article.getContent().replace("\n","<br>")); %></p>
        </div>
 </body>
 </html>
