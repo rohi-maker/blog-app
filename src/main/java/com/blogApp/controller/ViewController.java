@@ -2,6 +2,7 @@ package com.blogApp.controller;
 
 import com.blogApp.model.PostArticle;
 import com.blogApp.model.PostCategory;
+import com.blogApp.model.SearchQuery;
 import com.blogApp.model.UserSubscriptionRequest;
 import com.blogApp.repository.PostArticlesRepository;
 import com.blogApp.repository.PostCategoryRepository;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,6 +39,7 @@ public class ViewController {
     List<PostCategory> latestPostCategories = postCategories.get().collect(Collectors.toList());
     if (latestPostCategories != null && latestPostCategories.size() > 0) {
       model.addAttribute("postsFromDb", latestPostCategories);
+      model.addAttribute("toSearch", new SearchQuery());
       if (postCategories.isLast()) {
         model.addAttribute("nextPageNo", null);
       } else {
@@ -109,6 +112,7 @@ public class ViewController {
     Page<PostCategory> postCategories = blogAppService.getLatestPostCategory(0);
     List<PostCategory> latestPostCategories = postCategories.get().collect(Collectors.toList());
     if (latestPostCategories != null && latestPostCategories.size() > 0) {
+      model.addAttribute("toSearch", new SearchQuery());
       if (postCategories.isLast()) {
         model.addAttribute("nextPageNo", null);
         model.addAttribute("prevPageNo", null);
@@ -188,6 +192,12 @@ public class ViewController {
     return "related";
   }
 
+  @RequestMapping("/search")
+  public String search(@ModelAttribute("toSearch") SearchQuery toSearch) {
+    Page<PostArticle> postArticles = blogAppService.getPostArticlesByTitleOrCategory(toSearch.getQuery(), 0);
+    List<PostArticle> articles = postArticles.get().collect(Collectors.toList());
+    return "posts";
+  }
 
 
 }

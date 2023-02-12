@@ -39,7 +39,7 @@
                   <a class="nav-link" style="color: #FFFBF5;" href="/posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Contact Us</a>
+                  <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Subscribe Us</a>
                 </li>
 
               </ul>

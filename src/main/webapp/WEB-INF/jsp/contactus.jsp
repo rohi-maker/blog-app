@@ -39,7 +39,7 @@
                   <a class="nav-link" style="color: #FFFBF5;" href="/posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #FFFBF5;" href="contactus.jsp">Contact Us</a>
+                  <a class="nav-link" style="color: #FFFBF5;" href="contactus.jsp">Subscribe Us</a>
                 </li>
 
               </ul>

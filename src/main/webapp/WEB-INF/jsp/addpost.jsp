@@ -45,7 +45,7 @@
                     <a class="nav-link" style="color: #FFFBF5;" href="/posts">Posts</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFBF5;" href="contactus.jsp">Contact Us</a>
+                    <a class="nav-link" style="color: #FFFBF5;" href="contactus.jsp">Subscribe Us</a>
                   </li>
 
                 </ul>
@@ -58,6 +58,34 @@
         </nav>
       <!-- navigation bar starts here -->
       <div class="form-div-admin">
+            <%
+              if(request.getAttribute("postStatus")!=null){
+              String message=(String)request.getAttribute("postStatus");
+              if(message.equals("SAVED")){
+            %>
+            <input type="text" value="* POST IS SAVED SUCCESSFULLY" readonly="true" style="position: absolute;
+                        top: 75px;
+                        left: 346px;
+                        width: 49%;
+                        border: solid white;
+                        color: green;
+                        text-align: center;
+                        ">
+            <% }
+            else{
+            %>
+            <input type="text" value="* POST IS NOT SAVED IN TRY AGAIN" readonly="true" style="position: absolute;
+                         top: 75px;
+                         left: 346px;
+                         width: 49%;
+                         border: solid white;
+                         color: red;
+                         text-align: center;
+                         ">
+
+
+            <% } %>
+            <% }%>
             <form:form action="/addarticle" style="position: relative;" id="add-post-form" method="post" modelAttribute="postArticle">
                 <form:label path="title" class="admin-labels" style="position: absolute;
                 left: 299px;
@@ -88,6 +116,10 @@
     left: 610px;
     top: 184px;" name="post_category" />
                 <br>
+                <input type="reset" value="Reset Fields" style="position: absolute;
+                                top: 280px;
+                                left: 20px;">
+
             </form:form>
             <button form="add-post-form" style="    left: 541.1px;
             position: absolute;

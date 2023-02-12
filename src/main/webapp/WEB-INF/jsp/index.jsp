@@ -1,5 +1,6 @@
  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List, com.blogApp.model.PostCategory, java.lang.Integer"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,14 +43,14 @@
               <a class="nav-link" style="color: #FFFBF5;" href="/posts">Posts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Contact Us</a>
+              <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Subscribe Us</a>
             </li>
 
           </ul>
-          <form class="d-flex" role="search" action="/search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <form:form class="d-flex" role="search" action="/search" modelAttribute="toSearch">
+            <form:input path="query" class="form-control me-2" name="tosearch" type="search" placeholder="Search" aria-label="Search"/>
             <button class="search-button" type="submit">Search</button>
-          </form>
+          </form:form>
         </div>
     </div>
   </nav>

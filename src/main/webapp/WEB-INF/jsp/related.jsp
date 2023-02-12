@@ -39,7 +39,7 @@
                   <a class="nav-link" style="color: #FFFBF5;" href="/posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Contact Us</a>
+                  <a class="nav-link" style="color: #FFFBF5;" href="/contactus">Subscribe Us</a>
                 </li>
 
               </ul>
@@ -52,9 +52,9 @@
       </nav> <!-- nav bar finished here-->
       <!-- LOOP STARTS HERE -->
       <%
-      List<PostArticle> postArticles=(List)request.getAttribute("articlesFromDb");
       String postCategory=(String)request.getAttribute("postCategory");
-      if(postArticles!=null){
+      if(request.getAttribute("articlesFromDb")!=null){
+        List<PostArticle> postArticles=(List)request.getAttribute("articlesFromDb");
         for(PostArticle article: postArticles){
       %>
       <div class="post-layout">
@@ -73,7 +73,23 @@
       <%
       }
       }
+      else{
       %>
+      <!-- IF THERE IS NO POST RECEIVED FROM DATABASE THEN SHOW GRAPHIC -->
+
+      <img src="/images/nodatafound.jpg" alt="no-data-found-image" style="
+        width: 35%;
+        position: absolute;
+        left: 460px;">
+        <h1 style="
+        position: absolute;
+        left: 481px;
+        font-family: ui-rounded;
+        font-size: 29px;
+        top: 539px;">No posts related to this category is found !</h1>
+       <%
+       }
+       %>
       <div style="position: relative;">
       <!-- buttons logic starts here -->
        <% if(request.getAttribute("nextPageNo")!=null){

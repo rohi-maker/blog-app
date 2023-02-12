@@ -28,13 +28,15 @@ public class AdminController {
   }
 
   @PostMapping("/addarticle")
-  public String addPostArticle(@ModelAttribute("postArticle") PostArticle postArticle) {
+  public String addPostArticle(@ModelAttribute("postArticle") PostArticle postArticle, Model model) {
     postArticle.setId("ID" + new RandomStringGenerator().generateFromPattern("ccccCCnn"));
     PostArticle fromDb = postArticlesRepository.insert(postArticle);
     if (fromDb != null) {
+      model.addAttribute("postStatus", "SAVED");
       return "addpost";
     }
-    return null; // here we need to handle the exceptional cases
+    model.addAttribute("postStatus", "NOT-SAVED");
+    return "addpost"; // here we need to handle the exceptional cases
   }
 
 }
