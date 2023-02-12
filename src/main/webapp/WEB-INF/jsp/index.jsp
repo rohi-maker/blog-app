@@ -1,4 +1,4 @@
-<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List, com.blogApp.model.PostCategory, java.lang.Integer"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +80,8 @@
           </a>
     </div>
    <% } }%>
-
+    </div>
+    <div class="button-div">
    <% if(request.getAttribute("nextPageNo")!=null){
    int nextPageNo=(Integer)request.getAttribute("nextPageNo");
    %>

@@ -1,0 +1,55 @@
+.title-div{
+    position: relative;
+    height: 161px;
+    background-color: #BFACE2;
+    border: solid black 1px;
+    top: 11px;
+    margin-left: 37px;
+    margin-right: 37px;
+}
+.title-image{
+    width: 127px;
+    position: absolute;
+    top: 17px;
+    left: 110px;
+}
+.title-style{
+    position: absolute;
+    top: 13px;
+    left: 309px;
+    font-size: 33px;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+}
+.title-category{
+    position: absolute;
+    font-size: 17px;
+    top: 133px;
+    left: 310px;
+}
+.title-date{
+    position: absolute;
+    font-size: 17px;
+    left: 860px;
+    top: 133px;
+}
+.article-content{
+    height: auto;
+    margin-top: 10px;
+    border: solid black 3px;
+    background-color: #EBC7E6;
+   position: absolute;
+    top: 253px;
+    margin-left: 36px;
+    margin-right: 36px;
+
+}
+.paragraph-styling{
+    word-spacing: 6px;
+    padding-left: 45px;
+    padding-top:15px;
+    font-family: emoji;
+    line-height: 2;
+    font-size: 18px;
+    padding-right: 45px;
+}

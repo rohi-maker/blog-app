@@ -82,7 +82,7 @@ strong{
  }
  .topics{
     background-color: #F7EFE5 ;
-    height: 930px;
+    height: auto;
  }
  .logo-position{
       width: 171px;
@@ -258,6 +258,14 @@ strong{
   transform: translateY(0);
 }
 
+.button-div{
+   position: relative;
+   height: 120px;
+   background-color: #F7EFE5;
+}
+
+
+
 .next-button{
    appearance: none;
   background-color: #000000;
@@ -285,8 +293,8 @@ strong{
   width: 16%;
   will-change: transform;
   position: absolute;
-  top: 1428px;
-  left: 891px;
+  left: 942px;
+  top: 26px;
 }
 .next-button:disabled {
    pointer-events: none;
@@ -339,8 +347,8 @@ strong{
   width: 16%;
   will-change: transform;
   position: absolute;
-  top: 1428px;
-  left: 290px;
+  left: 142px;
+  top: 26px;
 }
 .gif-styling{
    border-radius: 6%;

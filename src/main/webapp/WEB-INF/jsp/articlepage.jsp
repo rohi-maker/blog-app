@@ -1,18 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List, com.blogApp.model.PostArticle, java.lang.Integer, java.lang.String"%>
+<%@ page import="java.util.List, com.blogApp.model.PostArticle, java.lang.Integer, java.lang.String, java.util.Date, java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodeBlogs-Posts</title>
+    <title>Article Page</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/poststyles.css">
+    <link rel="stylesheet" href="/css/articlestyles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Handlee&family=Itim&family=Palanquin+Dark:wght@400;500&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Cabin&family=Merriweather&family=Pacifico&family=Quicksand&display=swap"
+    rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary " style="padding-top: 0; padding-bottom: 0;">
@@ -49,44 +52,19 @@
               </form>
             </div>
         </div>
-      </nav> <!-- nav bar finished here-->
-      <!-- LOOP STARTS HERE -->
+      </nav>
+      <!-- Navigation bar ends here-->
       <%
-      List<PostArticle> postArticles=(List)request.getAttribute("postsArticlesFromDb");
-      if(postArticles!=null){
-        for(PostArticle article: postArticles){
+        PostArticle article=(PostArticle)request.getAttribute("postToRead");
       %>
-      <div class="post-layout">
-        <img src="/images/<%=article.getImage_id()%>" alt="title-image" class="title-image-layout">
-        <a href="/readpost/<%=article.getTitle()%>" alt="title-of-post" class="post-title-layout"><% out.print(article.getTitle()); %></a>
-        <p class="post-view-layout">
-               <%
-                String content=(String)article.getContent();
-                out.print(content.substring(0,210));
-                %>
-           <a href="/readpost/<%=article.getTitle()%>" style="text-decoration: none;
-                                      color: black;
-           ">Read more</a>
-        </p>
-      </div>
-      <%
-      }
-      }
-      %>
-      <div style="position: relative;">
-      <!-- buttons logic starts here -->
-       <% if(request.getAttribute("nextArticleNo")!=null){
-         int nextArticleNo=(Integer)request.getAttribute("nextArticleNo");
-         %>
-
-        <a href="/posts/<%=nextArticleNo%>" style="text-decoration: none; color: white;"><button class="next-button" >Next Button</button></a>
-        <%} %>
-        <% if (request.getAttribute("prevArticleNo")!=null){
-          int prevArticleNo=(Integer)request.getAttribute("prevArticleNo");
-        %>
-        <a href="/posts/<%=prevArticleNo%>" style="text-decoration: none; color: white;"><button class="previous-button" >Previous Page</button></a>
-        <% }%>
+      <div class="title-div">
+            <img src="/images/<%=article.getImage_id()%>" alt="title-image" class="title-image">
+            <h1 class="title-style"><% out.print(article.getTitle()); %></h1>
+            <h3 class="title-category">Category: <a href="/category" style="text-decoration: none; color: black;"> <% out.print(article.getPostCategory()); %> </a></h3>
+            <h3 class="title-date"> Posted on : <% out.print(new SimpleDateFormat().format(article.getCreatedDate())); %></h3>
         </div>
-
+       <div class="article-content">
+           <p class="paragraph-styling"><% out.print(article.getContent()); %></p>
+       </div>
 </body>
 </html>
