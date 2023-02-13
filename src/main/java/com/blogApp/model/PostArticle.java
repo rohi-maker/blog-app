@@ -10,7 +10,7 @@ import java.util.Date;
 @Document("PostArticles")
 public class PostArticle {
     @Id
-    private int id;
+    private String id;
     private String title;
     private String image_id;
     private String content;

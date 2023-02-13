@@ -48,4 +48,6 @@ public class DbRegistrationController {
         UserSubscriptionRequest userRequest = userSubscriptionRepository.insert(userSubscriptionRequest);
         return "thanks";
     }
+
+
 }

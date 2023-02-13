@@ -83,3 +83,20 @@
   box-shadow: none;
   transform: translateY(0);
 }
+
+.form-div-admin{
+   background-color: #C1AEFC;
+    height: 583px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+ }
+ .admin-labels{
+   font-family: emoji;
+   font-size: 32px;
+   font-weight: bold;
+ }
+ .admin-input-styling{
+   height: 37px;
+   width: 402px;
+ }
